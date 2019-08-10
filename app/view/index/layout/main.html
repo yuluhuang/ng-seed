@@ -1,0 +1,13 @@
+<!--<script type="text/ng-template" id="template.html">-->
+    <!--<h4>template</h4>-->
+    <!--<p>这是script标签获取模板文件的方式</p>-->
+    <!--<div class="main-content">-->
+        <!--<div class="btn btn-primary" ng-click="toAbout()">路由跳转-index/about</div>-->
+    <!--</div>&lt;!&ndash; /.main-content &ndash;&gt;-->
+<!--</script>-->
+
+<!-- 标签启用templateCache方式 ie8 不支持 无法识别 text/ng-template 之后会到app下寻找，未找到造成 404-->
+<!--<div ng-include="'template.html'" class="well"></div>-->
+
+<!-- 服务启用templateCache方式 -->
+<div ng-include="'template2.html'" class="well" scroll=""></div>

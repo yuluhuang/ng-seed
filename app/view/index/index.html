@@ -1,0 +1,27 @@
+<div>
+    <div ui-view="headerBar"></div>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-3 col-sm-2 col-md-2 col-lg-2">
+            <div ui-view="leftBar"></div>
+        </div>
+        <div class="col-xs-9 col-sm-10 col-md-10 col-lg-10">
+            <div>
+                <div ui-view="navBar"></div>
+                <div class="panel panel-body">
+                    <div ui-view="main" style="min-height: 580px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer" style="text-align: center; width: 100%;">
+    <!--<div ui-view="footer"></div>-->
+    <footer-bar></footer-bar>
+    <div ng-bind="vm.img | imgPrefix"></div>
+
+</div>

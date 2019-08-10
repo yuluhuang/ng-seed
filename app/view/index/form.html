@@ -1,0 +1,95 @@
+<div class="container" scroll>
+    <div class="well">
+
+        <div class="well">
+            https://code.angularjs.org/1.2.27/docs/api/ng/directive/form <br />
+            https://code.angularjs.org/1.2.27/docs/api/ng/type/form.FormController<br />
+        </div>
+
+        <div class="well">
+            $valid ng-valid Boolean 告诉我们这一项当前基于你设定的规则是否验证通过 [myForm.$valid || myForm.userName.$valid ||
+            myForm.username.$error.<code>[Ω]</code>]<br />
+            $invalid ng-invalid Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过<br />
+            $pristine ng-pristine Boolean 如果表单或者输入框没有使用则为True<br />
+            $dirty ng-dirty Boolean 如果表单或者输入框有使用到则为True<br />
+        </div>
+
+        <div class="well">
+            <code>
+                [Ω]<br />
+                email<br />
+                max<br />
+                maxlength<br />
+                min<br />
+                minlength<br />
+                number<br />
+                pattern<br />
+                required<br />
+                url<br />
+            </code>
+        </div>
+
+        <div class="well">
+            form .ng-valid { border: 1px solid green; }<br />
+            form .ng-invalid { border: 1px solid red; }<br />
+            form .ng-pristine { }<br />
+            form .ng-dirty { }<br />
+
+            /* really specific css rules applied by angular */<br />
+            .ng-invalid-required { }<br />
+            .ng-invalid-minlength { }<br />
+            .ng-valid-max-length { }<br />
+        </div>
+
+    </div>
+    <div class="well">
+        <form name="test_form">
+            <div class="radio">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" ng-model="vm.radio" value="AA"> AA
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" ng-model="vm.radio" value="BB"> BB
+                </label>
+                <label class="radio-inline">
+                    <div>{{ vm.radio }}</div>
+                </label>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="well">
+        <div>
+            in one of the following forms:<br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;for array data sources:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label <code>for</code> value <code>in</code> array<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <code>as</code> label <code>for</code> value
+            <code>in</code> array<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label <code>group by</code> group <code>for</code> value
+            <code>in</code> array<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <code>as</code> label <code>group by</code> group
+            <code>for</code> value <code>in</code> array <code>track by</code>
+            trackexpr<br />
+
+            &nbsp;&nbsp;&nbsp;&nbsp;for object data sources:<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label <code>for</code> (key , value) <code>in</code>
+            object<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <code>as</code> label <code>for</code> (key , value)
+            <code>in</code> object<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label <code>group by</code> group <code>for</code> (key,
+            value) <code>in</code> object<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select <code>as</code> label <code>group by</code> group
+            <code>for</code> (key, value) <code>in</code>
+            object<br />
+        </div>
+        <form name="test_form" ng-init="o=[0,1,2,3]; a=o[1];">
+            <select ng-model="a" ng-options="x for x in o" ng-change="vm.show()">
+                <option value="">可以加这个空值</option>
+            </select>
+        </form>
+    </div>
+
+
+</div>

@@ -1,0 +1,72 @@
+<!--
+https://code.angularjs.org/1.2.27/docs/api/ng/directive/form
+https://code.angularjs.org/1.2.27/docs/api/ng/type/form.FormController
+
+$valid	    ng-valid	Boolean 告诉我们这一项当前基于你设定的规则是否验证通过    myForm.$valid myForm.userName.$valid myForm.username.$error.[Ω]
+$invalid	ng-invalid	Boolean 告诉我们这一项当前基于你设定的规则是否验证未通过
+$pristine	ng-pristine	Boolean 如果表单或者输入框没有使用则为True
+$dirty	    ng-dirty	Boolean 如果表单或者输入框有使用到则为True
+
+[Ω]
+email
+max
+maxlength
+min
+minlength
+number
+pattern
+required
+url
+
+input .ng-valid         { border: 1px solid green; }
+input .ng-invalid     { border: 1px solid red; }
+input .ng-pristine     {  }
+input .ng-dirty         {  }
+
+/* really specific css rules applied by angular */
+.ng-invalid-required         {  }
+.ng-invalid-minlength         {  }
+.ng-valid-max-length         {  }
+
+-->
+<div>
+    <form class="form-horizontal" name="myForm" novalidate>
+        <div class="form-group">
+            <label for="Username" class="col-sm-3 control-label">Username</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="Username" placeholder="Username" required
+                       ng-model="vm.userName" name="userName">
+                <p ng-show="myForm.userName.$invalid && !myForm.userName.$pristine" class="help-block">You userName is
+                    required.</p>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" class="form-control" id="inputEmail3" placeholder="Email"
+                       required ng-model="vm.email" name="email">
+                <p ng-show="myForm.email.$invalid && !myForm.email.$pristine" class="help-block">You email is
+                    required.</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" id="inputPassword3" placeholder="Password"
+                       ng-model="vm.password" required ng-minlength=5 ng-maxlength=20 name="password"
+                       ng-pattern="/^[a-zA-Z]{5,20}$/" />
+                <p ng-show="myForm.password.$invalid && myForm.password.$dirty" class="help-block">You password is
+                    required and /^[a-zA-Z]{5,20}$/.</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-3 col-sm-9">
+                <div class="btn btn-primary" ng-click="submit(myForm)" ng-disabled="myForm.$invalid">Sign in</div>
+                <!--<button type="submit">Sign in</button>-->
+            </div>
+        </div>
+    </form>
+
+</div>

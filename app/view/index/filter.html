@@ -1,0 +1,120 @@
+<div class="well" scroll>
+    <div class="well">
+        <input type="number" ng-model="vm.amount"> <br>
+        default currency symbol ($): <span id="currency-default">{{vm.amount | currency}}</span><br>
+        custom currency identifier (¥): <span>{{vm.amount | currency:"¥"}}</span>
+    </div>
+
+    <div class="well">
+        <span ng-non-bindable>{{1288323623006 | date:'medium'}}</span>:
+        <span>{{1288323623006 | date:'medium'}}</span><br>
+        <span ng-non-bindable>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span>:
+        <span>{{1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'}}</span><br>
+        <span ng-non-bindable>{{1288323623006 | date:'MM/dd/yyyy @ h:mma'}}</span>:
+        <span>{{'1288323623006' | date:'MM/dd/yyyy @ h:mma'}}</span><br>
+        <span ng-non-bindable>{{1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}}</span>:
+        <span>{{'1288323623006' | date:"MM/dd/yyyy 'at' h:mma"}}</span><br>
+    </div>
+
+    <div class="well">
+        <div ng-init="friends = [{name:'John', phone:'555-1276'},
+                         {name:'Mary', phone:'800-BIG-MARY'},
+                         {name:'Mike', phone:'555-4321'},
+                         {name:'Adam', phone:'555-5678'},
+                         {name:'Julie', phone:'555-8765'},
+                         {name:'Juliette', phone:'555-5678'}]"></div>
+
+        Search: <input ng-model="searchText">
+        <table id="searchTextResults">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+            </tr>
+            <tr ng-repeat="friend in friends | filter:searchText">
+                <td>{{friend.name}}</td>
+                <td>{{friend.phone}}</td>
+            </tr>
+        </table>
+        <hr>
+        Any: <input ng-model="search.$"> <br>
+        Name only <input ng-model="search.name"><br>
+        Phone only <input ng-model="search.phone"><br>
+        Equality <input type="checkbox" ng-model="strict"><br>
+        <table id="searchObjResults">
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+            </tr>
+            <tr ng-repeat="friendObj in friends | filter:search:strict">
+                <td>{{friendObj.name}}</td>
+                <td>{{friendObj.phone}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="well">
+        <pre>{{ {'name':'value'} | json }}</pre>
+    </div>
+    <div class="well">
+        <div>
+            Limit {{vm.numbers}} to: <input type="number" step="1" ng-model="vm.numLimit">
+            <p>Output numbers: {{ vm.numbers | limitTo: vm.numLimit }}</p>
+            Limit {{vm.letters}} to: <input type="number" step="1" ng-model="vm.letterLimit">
+            <p>Output letters: {{ vm.letters | limitTo: vm.letterLimit }}</p>
+        </div>
+    </div>
+    <div class="well">
+        AAA 转 小写：{{ 'AAA' | lowercase}} <br />
+        aaa 转 大写：{{ 'aaa' | uppercase}}
+    </div>
+    <div class="well">
+        <div>
+            Enter number: <input ng-model='vm.val'><br>
+            Default formatting: <span id='number-default'>{{vm.val | number}}</span><br>
+            No fractions: <span>{{vm.val | number:0}}</span><br>
+            Negative number: <span>{{-vm.val | number:4}}</span>
+        </div>
+    </div>
+
+
+    <div class="well">
+        <div>
+            <pre>Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
+            <hr />
+            [ <a href="" ng-click="predicate=''">unsorted</a> ]
+            <table class="friend">
+                <tr>
+                    <th><a href="" ng-click="predicate = 'name'; reverse=false">Name</a>
+                        (<a href="" ng-click="predicate = '-name'; reverse=false">^</a>)
+                    </th>
+                    <th><a href="" ng-click="predicate = 'phone'; reverse=!reverse">Phone Number</a></th>
+                    <th><a href="" ng-click="predicate = 'age'; reverse=!reverse">Age</a></th>
+                </tr>
+                <tr ng-repeat="friend in vm.friends | orderBy:predicate:reverse">
+                    <td>{{friend.name}}</td>
+                    <td>{{friend.phone}}</td>
+                    <td>{{friend.age}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="well">
+        <div>
+            <table class="friend">
+                <tr>
+                    <th><a href="" ng-click="reverse=false;order('name', false)">Name</a>
+                        (<a href="" ng-click="order('-name',false)">^</a>)
+                    </th>
+                    <th><a href="" ng-click="reverse=!reverse;order('phone', reverse)">Phone Number</a></th>
+                    <th><a href="" ng-click="reverse=!reverse;order('age',reverse)">Age</a></th>
+                </tr>
+                <tr ng-repeat="friend in vm.friends">
+                    <td>{{friend.name}}</td>
+                    <td>{{friend.phone}}</td>
+                    <td>{{friend.age}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

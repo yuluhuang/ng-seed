@@ -1,0 +1,9 @@
+node_modules/
+.idea/
+temp.json
+app/static/js/temp.js
+mock/node_modules/
+assets
+dist/
+tmp/
+note.md

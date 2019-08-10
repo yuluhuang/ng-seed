@@ -1,0 +1,60 @@
+<div scroll>
+    <table id="simple-table" class="table  table-bordered table-hover">
+        <thead>
+        <tr>
+            <th class="center">
+                <label class="pos-rel">
+                    <input type="checkbox" class="ace" />
+                    <span class="lbl"></span>
+                </label>
+            </th>
+            <th >提交时间</th>
+            <th>产品类型</th>
+            <th>借款人</th>
+            <th class="hidden-480">分期金额（元）</th>
+            <th>经办人／经办行</th>
+            <th>
+                <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+                合作方
+            </th>
+            <th class="hidden-480">当前进度</th>
+
+            <th>操作</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <!--<tr>-->
+        <tr ng-repeat="(key, item) in vm.lists track by $index">
+            <td class="center">
+                <label class="pos-rel">
+                    <input type="checkbox" class="ace" />
+                    <span class="lbl"></span>
+                </label>
+            </td>
+            <td ng-bind="item.createDateStr">
+            </td>
+            <td class="center" ng-bind="item.acceptName">
+            </td>
+
+
+            <td ng-bind="item.demandBankName"></td>
+            <td class="hidden-480" ng-bind="item.deptName"></td>
+            <td ng-bind="item.idCard"></td>
+
+            <td class="hidden-480">
+                <span class="label label-sm label-warning" ng-bind="item.loanMoney"></span>
+            </td>
+
+            <td ng-bind="item.aisleUseTypeName"></td>
+            <td>
+                <div>
+                    <span class="btn btn-primary">btn</span>
+                </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

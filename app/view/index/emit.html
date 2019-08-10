@@ -1,0 +1,27 @@
+<div class="well" scroll>
+
+    <div class="well">
+        <h3>Angularjs解决controller之间通信的机制</h3>
+        <p>
+            Angularjs为在scope中为我们提供了冒泡和隧道机制，$broadcast会把事件广播给所有子controller，而$emit则会将事件冒泡传递给父controller，$on则是angularjs的事件注册函数</p>
+        <div class="well">此应用中 navbar 利用广播进行切换</div>
+    </div>
+    <div class="well">
+        <div class="panel-body">父组件</div>
+        <div class="well">
+            <div class="panel-body">子组件1</div>
+            <div class="panel-body">
+                <input type="text" class="form-control" ng-model="vm.emit1_msg">
+            </div>
+            <div class="panel-body">
+                <div class="btn btn-primary" ng-click="vm.emit1($event)">广播</div>
+            </div>
+        </div>
+        <div class="well">
+            <div class="panel-body">子组件2</div>
+            <div class="panel-body">
+                <div>接收消息：{{vm.emit2_msg}}</div>
+            </div>
+        </div>
+    </div>
+</div>
