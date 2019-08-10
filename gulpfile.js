@@ -145,7 +145,7 @@ function watch() {
     port: 38080,         //自定义端口
     server: {
       baseDir: './app',   // 启动服务的目录 默认 index.html
-      index: 'login.html' // 自定义启动文件名
+      index: 'index.html' // 自定义启动文件名
     },
     // open: 'external',   // 决定Browsersync启动时自动打开的网址 external 表示 可外部打开 url, 可以在同一 wifi 下不同终端测试
     injectChanges: true // 注入CSS改变

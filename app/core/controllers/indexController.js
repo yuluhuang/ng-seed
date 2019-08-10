@@ -24,6 +24,15 @@
     //   var aaaa = '<embed width='800' height='600' src='' + $scope.docpdf + ''></embed>';
     //   $scope.iframeHtml = $sce.trustAsHtml(aaaa);
     // };
+
+    var pdfList = [];
+    for (var i = 0; i < 5; i++) {
+      var tmp = {};
+      tmp.name = moment().subtract(i, 'day').format("YYYY-MM-DD");
+      tmp.url = 'https://yuluhuang.com/custom/pdf/' + tmp.name;
+      pdfList.push(tmp);
+    }
+    vm.pdfList = pdfList;
   });
 
   app.controller('indexLeftBarController', function ($scope, $timeout, $state, $location, $stateParams, Menu, globalValue) {

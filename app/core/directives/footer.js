@@ -29,7 +29,7 @@ app.directive('footerBar', function () {
       function ($scope, $element, $attrs) {
       }
     ],
-    templateUrl: 'js/directives/footer.html',
+    templateUrl: 'core/directives/footer.html',
     scope: {},
     link: function ($scope, $element, $attrs) {
       $(document).ready(function () {
