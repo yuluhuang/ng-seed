@@ -107,20 +107,20 @@ function indexTemplates() {
 function annotate1() {
   return gulp.src('app/core/**/*.js')
     .pipe(ngAnnotate())
-    .pipe(gulp.dest('tmp/js/'));
+    .pipe(gulp.dest('tmp/core/'));
 }
 
 function concats() {
-  return gulp.src(['tmp/js/apps/indexApp.js', 'tmp/view/*.js'])
+  return gulp.src(['tmp/core/apps/indexApp.js', 'tmp/view/*.js'])
     .pipe(concat('indexApp.js'))
-    .pipe(gulp.dest('tmp/js/apps'));
+    .pipe(gulp.dest('tmp/core/apps'));
 }
 
 function annotate2() {
-  return gulp.src('tmp/js/**/*.js')
+  return gulp.src('tmp/core/**/*.js')
     .pipe(ngmin({dynamic: false}))
     .pipe(stripDebug())  //删除log
-    .pipe(gulp.dest('tmp/js/'));
+    .pipe(gulp.dest('tmp/core/'));
 }
 
 function userefs() {
@@ -156,7 +156,7 @@ function watch() {
 /*
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
-var build = gulp.series(clean, setEnv, gulp.parallel(copy, copyDirectives), indexTemplates, annotate1, concats, annotate2, userefs, gulp.parallel(uglifys, cleanAfter, copyImg));
+var build = gulp.series(clean, setEnv, gulp.parallel(copy, copyDirectives), indexTemplates, annotate1, concats, annotate2, userefs, gulp.parallel(uglifys, copyImg));
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks
