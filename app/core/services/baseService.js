@@ -79,7 +79,7 @@
     }
 
     function getObjectLocalStorage(key, defaultObjectValue) {
-      if ($window.localStorage[key] != undefined) {
+      if ($window.localStorage && $window.localStorage[key] != undefined) {
         return angular.fromJson($window.localStorage[key]);
       } else {
         return defaultObjectValue || false;

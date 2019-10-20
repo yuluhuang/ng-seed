@@ -6,7 +6,8 @@
         // optional method
         'request': function (config) {
           // do something on success
-          config.headers['Authorization'] = 'Bearer ' + localStorageFactory.get('token');
+          //
+          // config.headers['Authorization'] = 'Bearer ' + localStorageFactory.get('token');
           return config;
         },
 

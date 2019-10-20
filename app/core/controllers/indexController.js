@@ -25,7 +25,20 @@
     //   $scope.iframeHtml = $sce.trustAsHtml(aaaa);
     // };
 
-
+    Feed.getRecentPdf().then(function (res) {
+      if (res.code === 200) {
+        console.log(res)
+        vm.pdfList = res.list
+      }
+    }).catch(function (err) {
+      var pdfList = [];
+      for (var i = 0; i < 5; i++) {
+        var tmp = {};
+        tmp.title = moment().subtract(i, 'day').format("YYYY-MM-DD");
+        pdfList.push(tmp);
+      }
+      vm.pdfList = pdfList;
+    })
 
   });
 
@@ -95,20 +108,7 @@
         vm.feedList = res.feeds
       }
     })
-    Feed.getRecentPdf().then(function (res) {
-      if (res.code === 200) {
-        console.log(res)
-        vm.pdfList = res.list
-      }
-    }).catch(function (err) {
-      var pdfList = [];
-      for (var i = 0; i < 5; i++) {
-        var tmp = {};
-        tmp.title = moment().subtract(i, 'day').format("YYYY-MM-DD");
-        pdfList.push(tmp);
-      }
-      vm.pdfList = pdfList;
-    })
+
   });
 
   app.controller('indexHeaderController', function ($scope, $state, $location) {

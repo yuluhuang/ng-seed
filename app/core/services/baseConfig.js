@@ -20,7 +20,7 @@
      * @returns {string}
      */
     this.getBaseUrl = function () {
-      var baseurl = "http://localhost:18080/";
+      var baseurl = envConfig.baseUrl || "http://localhost:18080/";
 
       return baseurl;
     };
