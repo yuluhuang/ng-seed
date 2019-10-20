@@ -4,7 +4,7 @@
   app.service('baseService', ['$resource', 'baseConfig', function ($resource, baseConfig) {
 
     var baseurl = baseConfig.getBaseUrl();
-    return $resource(baseurl + ':module' + '/' + ':param', {ignoreLoadingBar: true});
+    return $resource(baseurl + 'api/' + ':module' + '/' + ':param', {ignoreLoadingBar: true});
   }]);
 
   /**

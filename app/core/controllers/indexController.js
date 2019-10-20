@@ -2,7 +2,7 @@
   'use strict';
   var app = angular.module('app.indexController', ['app.apiService', 'app.directives.footer'], angular.noop);
 
-  app.controller('indexController', function ($scope, $state, $location, $timeout, Menu, LoanOrder, $q, globalValue, $stateParams, $sce) {
+  app.controller('indexController', function ($scope, $state, $location, $timeout, Feed, LoanOrder, $q, globalValue, $stateParams, $sce) {
     var vm = $scope.vm = {};
     vm.isCollapseMin = false;
     vm.img = 'a.b.com(filter case)'; // 测试过滤器
@@ -25,14 +25,8 @@
     //   $scope.iframeHtml = $sce.trustAsHtml(aaaa);
     // };
 
-    var pdfList = [];
-    for (var i = 0; i < 5; i++) {
-      var tmp = {};
-      tmp.name = moment().subtract(i, 'day').format("YYYY-MM-DD");
-      tmp.url = 'https://yuluhuang.com/custom/pdf/' + tmp.name;
-      pdfList.push(tmp);
-    }
-    vm.pdfList = pdfList;
+
+
   });
 
   app.controller('indexLeftBarController', function ($scope, $timeout, $state, $location, $stateParams, Menu, globalValue) {
@@ -80,7 +74,7 @@
 
   });
 
-  app.controller('indexMainController', function ($scope, $state, $location, $templateCache) {
+  app.controller('indexMainController', function ($scope, $state, $location, $templateCache, Feed) {
     var vm = $scope.vm = {};
     $scope.toIndex = function () {
       $state.go('index');
@@ -91,6 +85,30 @@
       + '<p>这是直接调用$templateCache服务获取模板文件的方式</p>' +
       '<div class="btn btn-primary" ng-click="toAbout()">路由跳转-index/about</div>';
     $templateCache.put('template2.html', tmp);
+
+
+
+
+    Feed.getRecentFeed().then(function (res) {
+      if (res.code === 200) {
+        console.log(res)
+        vm.feedList = res.feeds
+      }
+    })
+    Feed.getRecentPdf().then(function (res) {
+      if (res.code === 200) {
+        console.log(res)
+        vm.pdfList = res.list
+      }
+    }).catch(function (err) {
+      var pdfList = [];
+      for (var i = 0; i < 5; i++) {
+        var tmp = {};
+        tmp.title = moment().subtract(i, 'day').format("YYYY-MM-DD");
+        pdfList.push(tmp);
+      }
+      vm.pdfList = pdfList;
+    })
   });
 
   app.controller('indexHeaderController', function ($scope, $state, $location) {

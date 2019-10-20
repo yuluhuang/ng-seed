@@ -1,29 +1,37 @@
-<div>
-    <div ui-view="headerBar"></div>
-</div>
-<div class="col-sm-12 col-md-12 col-lg-12">
+<div class="" style="height: 100%; display: flex;">
 
-    <div class=" col-sm-2 col-md-2 col-lg-2" style="max-width: 300px;background: red">
-       <div style="">
-           111
-       </div>
-    </div>
-    <div class=" col-sm-10 col-md-10 col-lg-10">
-        <div class="row">
-            <div class=" col-sm-9 col-md-10 col-lg-10">
-                <div class="">
-                    <div ui-view="main" style="min-height: 580px"></div>
-                </div>
-            </div>
-            <div class=" col-sm-3 col-md-2 col-lg-2">
-                <div class="well " style="min-width: 130px">
-                    <div class="media" ng-repeat="pdf in vm.pdfList">
-                        <div class="media-body"><a href="{{pdf.url}}">{{pdf.name}}</a></div>
-                        <div class="media-right"></div>
+    <div class="box-shadow text-center "
+         style="width: 200px; min-width: 200px; max-width: 230px;height: 100%; position: relative; flex: 2; background: #fff;">
+        <div style="font-size: 30px; font-weight: bold;padding-top: 20px;">
+            寻找价值
+        </div>
+        <div style="margin-top: 30px;">
+            <div class="alert alert-info  margin-none" role="alert">日刊</div>
+            <div class="alert alert-success   " role="alert" style="padding-top: 20px; padding-bottom: 20px;">
+                <div class="media" ng-repeat="pdf in vm.pdfList" style="">
+                    <div class="media-body"><a target="_blank" href="https://yuluhuang.com/custom/pdf/{{pdf.title}}">{{pdf.title}}</a>
+                    </div>
+                    <div class="media-right">
+                        <a ng-if="pdf.url" :href="pdf.url" target="_blank"><i class="el-icon-download"></i></a>
                     </div>
                 </div>
             </div>
+            <!--            <div class="alert alert-info  margin-none" role="alert">日刊</div>-->
+
         </div>
+        <div style="position: absolute; bottom: 30px; left: 0; right: 0; margin: auto; color: gray">1737249565@qq.com
+        </div>
+    </div>
+    <div class="" style="flex: 10;">
+        <div>
+            <div ui-view="headerBar"></div>
+        </div>
+        <div>
+            <div class="panel-body" style=" padding: 10px 40px; ">
+                <div ui-view="main" style=""></div>
+            </div>
+        </div>
+
     </div>
 </div>
 
@@ -52,3 +60,4 @@
 
 </div>
 -->
+

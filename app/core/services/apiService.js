@@ -61,6 +61,25 @@
 
     }])
 
+      .factory('Feed', ['baseService', '$q', function (baseService, $q) {
+        return {
+          getRecentFeed: function () {
+            var defer = $q.defer();
+            baseService.get({module: 'pull_feed', param: 'recent_add'}, {}, function (data) {defer.resolve(data);}, function (err) {
+              defer.reject('error: ' + err)
+            })
+            return defer.promise;
+          },
+          getRecentPdf: function () {
+            var defer = $q.defer();
+            baseService.get({module: 'pdf', param: 'recent'}, {}, function (data) {defer.resolve(data);}, function (err) {
+              defer.reject('error: ' + err)
+            })
+            return defer.promise;
+          }
+        }
+      }])
+
     .factory('Menu', ['baseService', '$q', function (baseService, $q) {
       return {
         getMenuTree: function () {

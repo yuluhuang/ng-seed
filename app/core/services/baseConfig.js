@@ -20,7 +20,7 @@
      * @returns {string}
      */
     this.getBaseUrl = function () {
-      var baseurl = "http://192.168.0.57:3000/";
+      var baseurl = "http://localhost:18080/";
 
       return baseurl;
     };

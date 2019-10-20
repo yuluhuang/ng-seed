@@ -1,4 +1,63 @@
-111
+<div class="panel" style="display: flex; min-height: 500px;">
+    <div class="" style="flex: 2;min-width: 400px; ">
+        <div class="panel-body text-center" style="font-size: 40px;">
+            支持RSS是一种美德
+        </div>
+    </div>
+    <div class="" style="flex: 1; min-width: 200px; max-width: 300px;">
+        <div class="panel-body">
+            <div class="b-t p-b-s">
+                <div class="media">
+                    <div class="media-body media-middle">站长</div>
+                    <div class="media-right">
+                        <a href="https://github.com/yuluhuang" target="_blank">
+                            <svg class="octicon octicon-mark-github v-align-middle" height="24" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="p-t-b-md">
+                站长什么都没留下
+            </div>
+        </div>
+    </div>
+
+    </div>
+</div>
+
+<div class="">
+    <div style="width: 100%; padding-bottom:5px; border-bottom: 1px solid lightgray; margin: 10px auto 20px;">
+        最近添加
+    </div>
+    <div class="  " style="">
+        <div ng-repeat="fd in vm.feedList track by fd._id" class="col-md-3  " style="padding-left: 0px;">
+            <div class="media  panel panel-body box-shadow" style="">
+                <div class="media-left media-middle" @click="toIndexSubscribeFeed(fd)"
+                     style="line-height: 48px;">
+                    <span style="width: 38px;" v-if="!fd.coverUrl" class="oi oi-rss-alt text-center"
+                          title="icon rss"
+                          aria-hidden="true"></span>
+                    <img
+                            style="width: 38px; height: 38px;"
+                            src="{{fd.coverUrl || '../../static/img/rss.png'}}" alt="">
+                </div>
+                <div class="media-body media-middle" style="width: 102px; ">
+                    <a target="_blank"
+                       href="https://yuluhuang.com/feed/index.html#/Index/SubscribeFeed/{{fd._id}}"
+                       class=" wrap-text-ellipsis" style="margin-top: 6px;">
+                        <small style="margin: 0 0 0 8px;">{{fd.title}}</small> <br/>
+                        <small style="margin: 0 0 0 8px;" class="text-muted">{{fd.folder}}</small>
+
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer col-md-12 text-center" style="margin-top: 20px;">
+<!--        <div ui-view="footer"></div>-->
+            <footer-bar></footer-bar>
+
+    </div>
 <!--<script type="text/ng-template" id="template.html">-->
     <!--<h4>template</h4>-->
     <!--<p>这是script标签获取模板文件的方式</p>-->

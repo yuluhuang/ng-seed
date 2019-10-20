@@ -1,9 +1,10 @@
 
 (function () {
   envConfig = {
-    baseUrl: "http://192.168.0.57:3000/"
+    baseUrl: "https://yuluhuang.com/"
   }
 })();
+
 
 // (function () {
 //   'use struct';

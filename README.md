@@ -22,5 +22,5 @@ npm start
 ## 打包
 
 ```
-gulp build || npm run build
+npm run build
 ```
