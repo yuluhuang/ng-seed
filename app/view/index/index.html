@@ -6,8 +6,10 @@
             寻找价值
         </div>
         <div style="margin-top: 30px;">
-            <div class="alert alert-info  margin-none" role="alert">日刊</div>
-            <div class="alert alert-success   " role="alert" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="alert alert-info  margin-none" role="alert" style="border-radius: 0;">每日一句</div>
+            <div class="alert alert-success   " role="alert" style="padding-top: 20px; padding-bottom: 20px;border-radius: 0;">{{vm.day}}</div>
+            <div class="alert alert-info  margin-none" role="alert" style="border-radius: 0;">日刊</div>
+            <div class="alert alert-success   " role="alert" style="padding-top: 20px; padding-bottom: 20px;border-radius: 0;">
                 <div class="media" ng-repeat="pdf in vm.pdfList" style="">
                     <div class="media-body"><a target="_blank" href="https://yuluhuang.com/custom/pdf/{{pdf.title}}">{{pdf.title}}</a>
                     </div>

@@ -24,7 +24,6 @@
     //   var aaaa = '<embed width='800' height='600' src='' + $scope.docpdf + ''></embed>';
     //   $scope.iframeHtml = $sce.trustAsHtml(aaaa);
     // };
-
     Feed.getRecentPdf().then(function (res) {
       if (res.code === 200) {
         console.log(res)
@@ -40,6 +39,12 @@
       vm.pdfList = pdfList;
     })
 
+    Feed.getDay().then(function (res) {
+      if (res.code === 200) {
+        console.log(res)
+        vm.day = res.title
+      }
+    })
   });
 
   app.controller('indexLeftBarController', function ($scope, $timeout, $state, $location, $stateParams, Menu, globalValue) {

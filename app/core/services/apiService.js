@@ -76,6 +76,13 @@
               defer.reject('error: ' + err)
             })
             return defer.promise;
+          },
+          getDay: function () {
+            var defer = $q.defer();
+            baseService.get({module: 'day', param: 'get'}, {}, function (data) {defer.resolve(data);}, function (err) {
+              defer.reject('error: ' + err)
+            })
+            return defer.promise;
           }
         }
       }])
