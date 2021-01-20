@@ -83,11 +83,11 @@ function copy() {
     .pipe(gulp.dest('tmp'));
 }
 
-function copyDirectives() {
-  return gulp.src(['app/core/directives/*.html'], {base: 'app'})
-    .pipe(htmlminify())
-    .pipe(gulp.dest('dist'));
-}
+// function copyDirectives() {
+//   return gulp.src(['app/core/directives/*.html'], {base: 'app'})
+//     .pipe(htmlminify())
+//     .pipe(gulp.dest('dist'));
+// }
 
 function copyImg() {
   return gulp.src(['app/static/img/*.png'], {base: 'app'})
@@ -102,7 +102,12 @@ function indexTemplates() {
     .pipe(templateCache('index.js', {root: 'view', module: 'indexApp'}))
     .pipe(gulp.dest('tmp/view/'));
 }
-
+function indexDirectivesTemplates() {
+  return gulp.src(['app/js/directives/*.html'])
+      .pipe(htmlminify())
+      .pipe(templateCache('directives.js', {root: 'js/directives', module: 'indexApp'}))
+      .pipe(gulp.dest('tmp/view/'));
+}
 
 function annotate1() {
   return gulp.src('app/core/**/*.js')
@@ -156,7 +161,7 @@ function watch() {
 /*
  * Specify if tasks run in series or parallel using `gulp.series` and `gulp.parallel`
  */
-var build = gulp.series(clean, setEnv, gulp.parallel(copy, copyDirectives), indexTemplates, annotate1, concats, annotate2, userefs, gulp.parallel(uglifys, copyImg));
+var build = gulp.series(clean, setEnv, gulp.parallel(copy), indexTemplates, indexDirectivesTemplates, annotate1, concats, annotate2, userefs, gulp.parallel(uglifys, cleanAfter, copyImg));
 
 /*
  * You can use CommonJS `exports` module notation to declare tasks
